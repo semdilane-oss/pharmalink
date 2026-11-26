@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pharmalink – Trouvez votre médicament à Lomé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0b6b36;--g2:#0e8a45;--gd:#07431f;--gl:#eaf5ee;--bg:#f6f9f7;--card:#fff;--ink:#12251a;--mut:#64786c;--line:#e2ebe5;--warn:#9a6700;--bad:#b42318;--wl:#fff6e0;--bl:#fdeceb;--sh:0 1px 2px #0a2a1a0d,0 4px 16px #0a2a1a0d;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--g:#3ccf7a;--g2:#2fb869;--gd:#0a1f13;--gl:#143324;--bg:#0b1510;--card:#111f17;--ink:#e9f3ec;--mut:#98b0a1;--line:#1f3528;--warn:#e8b24a;--bad:#f59a93;--wl:#33290f;--bl:#3a1a18;color-scheme:dark}}
+:root[data-theme="dark"]{--g:#3ccf7a;--g2:#2fb869;--gd:#0a1f13;--gl:#143324;--bg:#0b1510;--card:#111f17;--ink:#e9f3ec;--mut:#98b0a1;--line:#1f3528;--warn:#e8b24a;--bad:#f59a93;--wl:#33290f;--bl:#3a1a18;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+button,input,select{font-family:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+.hd{max-width:1200px;margin:auto;display:flex;align-items:center;gap:20px;padding:12px 20px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.4px;color:var(--g)}
+.logo i{width:34px;height:34px;border-radius:9px;background:var(--g);display:grid;place-items:center}.logo svg{width:20px;height:20px}
+nav{display:flex;gap:4px;margin-left:auto}
+nav button{border:0;background:none;color:var(--mut);font:600 14px inherit;font-family:inherit;padding:9px 14px;border-radius:8px;cursor:pointer}
+nav button.on{background:var(--gl);color:var(--g)}
+main{max-width:1200px;margin:auto;padding:20px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--gd),var(--g));color:#fff;border-radius:20px;padding:34px 30px 26px;margin-bottom:22px}
+.hero:after{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;background:#fff;opacity:.05;clip-path:polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.hero h1{margin:6px 0 6px;font-size:30px;line-height:1.2;letter-spacing:-.6px;max-width:640px}.hero p{margin:0 0 20px;opacity:.85;max-width:560px}
+.sb{position:relative;max-width:680px}
+.sb input{width:100%;padding:16px 18px 16px 50px;border-radius:12px;border:0;font:500 16px inherit;font-family:inherit;color:#12251a;background:#fff;outline:none;box-shadow:0 8px 24px #0004}
+.sb>svg{position:absolute;left:17px;top:16px;width:20px;height:20px;color:#0b6b36}
+.sug{position:absolute;left:0;right:0;top:60px;background:var(--card);color:var(--ink);border-radius:12px;box-shadow:0 16px 40px #0005;z-index:10;overflow:hidden}
+.sug div{padding:11px 16px;cursor:pointer;border-bottom:1px solid var(--line)}.sug div:hover{background:var(--gl)}.sug small{color:var(--mut)}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.chip{border:1px solid #fff5;background:transparent;color:#fff;border-radius:8px;padding:8px 13px;font:600 13px inherit;font-family:inherit;cursor:pointer}
+.chip.on{background:#fff;color:#0b6b36;border-color:#fff}
+.ctl select,.ctl input[type=time]{border:0;border-radius:8px;padding:8px 10px;font:600 13px inherit;font-family:inherit;background:#fff;color:#12251a}
+.garde{background:#f5c542;color:#3b2d00;border:0;border-radius:8px;padding:9px 15px;font:700 13px inherit;font-family:inherit;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.stats{display:flex;gap:28px;margin-top:22px;padding-top:16px;border-top:1px solid #fff3;font-size:13px;opacity:.9;flex-wrap:wrap}.stats b{font-size:18px;display:block}
+.grid{display:grid;grid-template-columns:1.05fr 1fr;gap:20px;align-items:start}
+@media(max-width:860px){.grid{grid-template-columns:1fr}.hero h1{font-size:24px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:var(--sh)}
+.card.sel{border-color:var(--g);box-shadow:0 0 0 1px var(--g),var(--sh)}
+.card.best{border-left:4px solid var(--g)}
+.top{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.rk{min-width:30px;height:30px;border-radius:8px;background:var(--gl);color:var(--g);display:grid;place-items:center;font-weight:800;font-size:14px}
+.nm{font-weight:700;font-size:16px;letter-spacing:-.2px}.sub{color:var(--mut);font-size:13px}
+.sc{margin-left:auto;text-align:right;font-weight:800;color:var(--g);font-size:22px;line-height:1}.sc small{display:block;font-size:10px;color:var(--mut);font-weight:600;margin-top:2px}
+.bd{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.b{font-size:12px;font-weight:600;padding:3px 9px;border-radius:6px;background:var(--gl);color:var(--g)}.b.w{background:var(--wl);color:var(--warn)}.b.r{background:var(--bl);color:var(--bad)}
+.rec{font-size:14px;background:var(--gl);padding:10px 12px;border-radius:10px;margin:10px 0 0}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:10px;overflow:hidden}
+.kp div{background:var(--card);padding:9px 4px;font-size:11px;color:var(--mut);text-align:center}.kp b{display:block;color:var(--ink);font-size:15px}
+.note{background:var(--wl);color:var(--warn);padding:10px 14px;border-radius:10px;margin-bottom:12px;font-weight:600;font-size:14px}
+.btn{border:0;border-radius:9px;padding:10px 16px;font:700 14px inherit;font-family:inherit;cursor:pointer;background:var(--g);color:#fff}.btn.o{background:var(--gl);color:var(--g)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.map{position:sticky;top:calc(72px + env(safe-area-inset-top,0px))}
+svg.m{width:100%;height:auto;border-radius:10px;display:block}
+table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;color:var(--mut);font-size:12px;padding:8px;text-transform:uppercase;letter-spacing:.05em}td{padding:7px 8px;border-top:1px solid var(--line)}
+input.f,td input{padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}td input{width:90px}
+.scr{overflow-x:auto}.hide{display:none}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--gd);color:#fff;padding:12px 20px;border-radius:10px;font-weight:600;z-index:50;box-shadow:0 8px 24px #0005;max-width:90%}
+.login{max-width:420px;margin:30px auto}.login label{display:block;font-weight:600;font-size:13px;margin:12px 0 4px}.login input{width:100%}
+.err{color:var(--bad);font-size:13px;min-height:18px;margin-top:8px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}.kpis div{background:var(--gl);border-radius:12px;padding:14px}.kpis b{font-size:24px;display:block;color:var(--g)}.kpis span{font-size:12px;color:var(--mut)}
+.tb{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+footer{max-width:1200px;margin:auto;padding:20px;color:var(--mut);font-size:12px;text-align:center}
+h2{font-size:18px;margin:4px 0 12px;letter-spacing:-.3px}
+</style>
+</head>
+<body>
+<header><div class="hd">
+<div class="logo"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg></i>Pharmalink</div>
+<nav><button id="t1" class="on" onclick="tab(1)">Rechercher</button><button id="t2" onclick="tab(2)">Espace pharmacie</button></nav>
+</div></header>
+<main>
+<section id="v1">
+<div class="hero">
+<div class="eyebrow">Lomé · Togo</div>
+<h1>Trouvez votre médicament, au bon prix, près de vous.</h1>
+<p>Disponibilité, prix, distance et assurances acceptées : comparez les pharmacies avant de vous déplacer.</p>
+<div class="sb">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+<input id="q" placeholder="Nom du médicament, ex. Doliprane, Coartem…" autocomplete="off" oninput="sugg()" onkeydown="if(event.key==='Enter')pickFirst()">
+<div id="sug" class="sug hide"></div></div>
+<div class="ctl" id="prios"></div>
+<div class="ctl">
+<button class="garde" onclick="goGarde()"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Pharmacies de garde</button>
+<label class="chip" style="cursor:pointer"><input type="checkbox" id="urg" onchange="urg=this.checked;draw()" style="accent-color:#f5c542"> Mode urgence</label>
+<select id="ins" onchange="insu=this.value;draw()" title="Mon assurance"></select>
+<input type="time" id="clk" onchange="setT(this.value)" title="Heure simulée (démo)">
+</div>
+<div class="stats"><div><b>10</b>pharmacies</div><div><b>24 h/24</b>pharmacies de garde</div><div><b>5</b>assurances</div></div>
+</div>
+<div id="out"></div>
+</section>
+<section id="v2" class="hide"><div id="v2c"></div></section>
+</main>
+<footer>Pharmalink ne remplace ni le médecin ni le pharmacien. Données de démonstration (pharmacies et stocks fictifs) · Projet tutoré – ENP Lomé.</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const lev=(a,b)=>{const d=[];for(let i=0;i<=a.length;i++)d[i]=[i];for(let j=1;j<=b.length;j++)d[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]==b[j-1]?0:1));return d[a.length][b.length]};
+const fuzzy=(q,m)=>{q=norm(q).trim();if(!q)return false;const t=norm(m.n+' '+m.dci);return t.includes(q)||t.split(/[\s,]+/).some(w=>lev(q,w.slice(0,q.length))<=(q.length>5?2:1))};
+const hav=(a,b,c,d)=>{const r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.sin(x/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)**2;return 12742*Math.asin(Math.sqrt(h))};
+const F=n=>n.toLocaleString('fr-FR')+' F';
+const U={lat:6.1725,lng:1.2314};
+const H={"1": "1ae25ea443c9b304983af7881dee6470e511f175a075a1bd5ba39a28a904d464", "2": "10c8a4868d5183cb736283a6f362d387b84b75e3b3b7b4c95c4d7baa05a55d5e", "3": "7565a63b7b6c3a26212ed778bfc0fee968c273b8eab8b266a1a8bf8013116358", "4": "44b8b0064eff42fed735f638d63d578ed8b5d12ab12302d2011dfdeff1dbe8c5", "5": "e7070358459c880fba08ec8b840e7d5837648e61a1592c028dc5bec68af82365", "6": "8443ce35e2a2a4360ec323518d04f9f5e64397be138c2b4175622d38ca03f1bc", "7": "efaf279eec09682186658bc6aaa33ab7d8f271f16074dbd59dbef4d73da6e6a9", "8": "bc21391c1594f093bc155dc44ca926dc465cdbf939cf30fb68904d7727d367dd", "9": "9c25a512542a9d248770c6bc4a1bf029ebef3cda6f3ce6b80cf626ff0f37f38f", "10": "f3256937ff1b589556deaad22d5d0e6cc7b7c501d6d285481a89a6b145d4a8b2"};
+const INS=['NSIA','Allianz','GTA','Atlantique','Sunu'];
+const M=[
+{id:1,n:'Doliprane 1000 mg',dci:'Paracétamol',rx:0,gen:[2],base:1500},
+{id:2,n:'Paracétamol 500 mg (générique)',dci:'Paracétamol',rx:0,gen:[1],base:700},
+{id:3,n:'Coartem 20/120',dci:'Artéméther-Luméfantrine',rx:1,gen:[4],base:3200},
+{id:4,n:'Artéméther-Luméfantrine (générique)',dci:'Antipaludique',rx:1,gen:[3],base:2400},
+{id:5,n:'Amoxicilline 500 mg',dci:'Amoxicilline',rx:1,gen:[],base:2100},
+{id:6,n:'Ibuprofène 400 mg',dci:'Ibuprofène',rx:0,gen:[],base:1200},
+{id:7,n:'Sels de réhydratation orale (SRO)',dci:'Réhydratation',rx:0,gen:[],base:350},
+{id:8,n:'Insuline Mixtard',dci:'Insuline humaine',rx:1,gen:[],base:6500}];
+const P=[
+{id:1,n:'Pharmacie Tokoin Centrale',q:'Tokoin',lat:6.1650,lng:1.2150,tel:'+228 90 00 00 01',h:[7,21],g:0,ins:['NSIA','Allianz','GTA']},
+{id:2,n:'Pharmacie du Grand Marché',q:'Assivito',lat:6.1690,lng:1.2260,tel:'+228 90 00 00 02',h:[8,20],g:0,ins:['NSIA','Atlantique']},
+{id:3,n:'Pharmacie Hédzranawoé',q:'Hédzranawoé',lat:6.1810,lng:1.2360,tel:'+228 90 00 00 03',h:[0,24],g:1,ins:['Allianz','GTA','Sunu']},
+{id:4,n:'Pharmacie Bè Kpota',q:'Bè',lat:6.1580,lng:1.2470,tel:'+228 90 00 00 04',h:[7,22],g:0,ins:['NSIA','Sunu']},
+{id:5,n:'Pharmacie Amoutivé',q:'Amoutivé',lat:6.1620,lng:1.2290,tel:'+228 90 00 00 05',h:[8,21],g:0,ins:['Allianz','Atlantique','GTA']},
+{id:6,n:'Pharmacie de la Lagune',q:'Nyékonakpoè',lat:6.1560,lng:1.2220,tel:'+228 90 00 00 06',h:[0,24],g:1,ins:['NSIA','Allianz']},
+{id:7,n:'Pharmacie Kodjoviakopé',q:'Kodjoviakopé',lat:6.1540,lng:1.2020,tel:'+228 90 00 00 07',h:[7,20],g:0,ins:['GTA','Sunu']},
+{id:8,n:'Pharmacie Agoè Nyivé',q:'Agoè',lat:6.2100,lng:1.2090,tel:'+228 90 00 00 08',h:[8,19],g:0,ins:['NSIA']},
+{id:9,n:'Pharmacie Adidogomé',q:'Adidogomé',lat:6.1930,lng:1.1850,tel:'+228 90 00 00 09',h:[7,21],g:0,ins:['Allianz','Sunu','Atlantique']},
+{id:10,n:'Pharmacie Djidjolé',q:'Djidjolé',lat:6.1800,lng:1.1990,tel:'+228 90 00 00 10',h:[8,22],g:0,ins:['NSIA','GTA']}];
+P.forEach(p=>p.login='PH-'+String(p.id).padStart(3,'0'));
+const hs=(a,b)=>{let x=(a*2654435761+b*40503)>>>0;x^=x>>>13;x=Math.imul(x,1274126177)>>>0;return x%100};
+const S={};P.forEach(p=>{S[p.id]={};M.forEach(m=>{const r=hs(p.id,m.id),r2=hs(m.id,p.id+9);
+S[p.id][m.id]={q:r<20?0:r<38?r%5+1:6+r%40,p:Math.round(m.base*(.9+r2%25/100)/25)*25,t:Date.now()-(r2*7+5)*60000}})});
+
+let med=null,mode='search',sel=null,prio='eq',urg=false,insu='Aucune',user=null,notice='';
+const now=new Date();let T=now.getUTCHours()*60+now.getUTCMinutes();
+const PR={eq:['Équilibré',[.30,.20,.20,.15,.15]],near:['Le plus proche',[.25,.20,.40,.05,.10]],cheap:['Le moins cher',[.25,.15,.10,.35,.15]],fast:['Le plus rapide',[.30,.25,.30,.05,.10]]};
+const isOpen=p=>p.g||(p.h[0]*60<=T&&T<p.h[1]*60);
+const ago=t=>{const m=Math.round((Date.now()-t)/60000);return m<1?'à l’instant':m<60?`il y a ${m} min`:`il y a ${Math.round(m/60)} h`};
+const tm=(d,v)=>Math.max(1,Math.round(d/v*60));
+
+function init(){
+ $('#prios').innerHTML=Object.entries(PR).map(([k,v])=>`<button class="chip ${k==prio?'on':''}" onclick="prio='${k}';init();draw()">${v[0]}</button>`).join('');
+ $('#ins').innerHTML=['Aucune',...INS].map(i=>`<option ${i==insu?'selected':''} value="${i}">${i=='Aucune'?'Mon assurance : aucune':'Assurance : '+i}</option>`).join('');
+ $('#clk').value=String(Math.floor(T/60)).padStart(2,'0')+':'+String(T%60).padStart(2,'0');
+}
+function setT(v){const[a,b]=v.split(':');T=+a*60+ +b;draw()}
+function tab(n){$('#v1').classList.toggle('hide',n!=1);$('#v2').classList.toggle('hide',n!=2);$('#t1').classList.toggle('on',n==1);$('#t2').classList.toggle('on',n==2);if(n==2)renderPh();else draw()}
+function sugg(){const v=$('#q').value,l=M.filter(m=>fuzzy(v,m)).slice(0,5),s=$('#sug');
+ s.classList.toggle('hide',!l.length);s.innerHTML=l.map(m=>`<div onclick="pick(${m.id})">${m.n}<br><small>${m.dci}${m.rx?' · sur ordonnance':''}</small></div>`).join('')}
+function pick(id){med=M.find(m=>m.id==id);mode='search';sel=null;$('#q').value=med.n;$('#sug').classList.add('hide');draw()}
+function pickFirst(){const m=M.find(m=>fuzzy($('#q').value,m));if(m)pick(m.id)}
+function goGarde(){mode='garde';med=null;sel=null;$('#q').value='';$('#sug').classList.add('hide');draw()}
+
+function compute(){
+ let rows=P.map(p=>{const d=hav(U.lat,U.lng,p.lat,p.lng)*1.35;let s=null,gen=null;
+  if(med){s=S[p.id][med.id];if(s.q==0)for(const g of med.gen){const gs=S[p.id][g];if(gs.q>0){gen=M.find(x=>x.id==g);s=gs;break}}}
+  return{p,d,s,gen,open:isOpen(p),avail:s?s.q>0:true,acc:insu=='Aucune'||p.ins.includes(insu)}});
+ notice='';
+ if(mode=='garde')return rows.filter(r=>r.p.g).sort((a,b)=>a.d-b.d);
+ let R=[2,5,10,30],use=R[3];
+ for(const r of R){if(rows.some(x=>x.d<=r&&x.avail&&x.open)){use=r;break}}
+ if(use>2)notice=`Aucune pharmacie ouverte avec ce produit dans 2 km : le rayon a été élargi à ${use} km.`;
+ rows=rows.filter(r=>r.d<=use);
+ const W=PR[urg?'fast':prio][1],prices=rows.filter(r=>r.avail&&r.s).map(r=>r.s.p),mn=Math.min(...prices);
+ rows.forEach(r=>{const a=!r.s?1:r.s.q>5?1:r.s.q>0?.5:0;
+  const sc=W[0]*a+W[1]*(r.open?1:0)+W[2]*Math.max(0,1-r.d/8)+W[3]*(r.s&&r.avail?mn/r.s.p:0)+W[4]*(r.acc?1:.2);
+  r.score=Math.round(100*sc*((r.avail&&r.open)?1:.35))});
+ return rows.sort((a,b)=>b.score-a.score)}
+
+function explain(r){const b=[`à ${r.d<1?Math.round(r.d*1000)+' m':r.d.toFixed(1)+' km'} (${tm(r.d,5)} min à pied, ${tm(r.d,25)} min à moto)`];
+ if(r.s)b.push(`en stock à ${F(r.s.p)}`);b.push(r.p.g?'de garde 24 h/24':`ouverte jusqu’à ${r.p.h[1]} h`);
+ if(insu!='Aucune')b.push(r.acc?`carte ${insu} acceptée`:`carte ${insu} non acceptée`);return b.join(', ')}
+
+function draw(){
+ const out=$('#out');
+ if(mode=='search'&&!med){out.innerHTML=`<div class="card" style="text-align:center;padding:30px"><h2>Commencez par chercher un médicament</h2><p class="sub" style="margin:0">Essayez « Doliprane », « Coartem » ou une faute de frappe comme « amoxiciline ».</p></div>`;return}
+ const rows=compute();if(!sel||!rows.find(r=>r.p.id==sel))sel=rows[0]&&rows[0].p.id;
+ const title=mode=='garde'?'Pharmacies de garde les plus proches':`${rows.length} pharmacie(s) pour « ${med.n} »`;
+ out.innerHTML=`${notice?`<div class="note">${notice}</div>`:''}<div class="grid"><div><h2>${title}</h2>${rows.map((r,i)=>card(r,i)).join('')||'<div class="card">Aucun résultat.</div>'}</div><div class="map">${mapSvg(rows)}<div id="det"></div></div></div>`;
+ detail(rows.find(r=>r.p.id==sel))}
+
+function card(r,i){const p=r.p,s=r.s,best=i==0&&mode=='search'&&r.avail&&r.open;
+ const av=!s?'':s.q==0?'<span class="b r">Indisponible</span>':s.q<=5?'<span class="b w">Stock faible</span>':'<span class="b">Disponible</span>';
+ return `<div class="card ${best?'best':''} ${p.id==sel?'sel':''}"><div class="top" onclick="sel=${p.id};draw()">
+<div class="rk">${i+1}</div><div><div class="nm">${p.n}</div><div class="sub">${p.q} · ${p.tel}</div></div>
+${mode=='search'?`<div class="sc">${r.score}<small>SCORE /100</small></div>`:''}</div>
+${best?`<div class="rec"><b>Meilleure option :</b> ${explain(r)}.</div>`:''}
+<div class="bd">${r.open?'<span class="b">Ouverte</span>':'<span class="b r">Fermée</span>'}${p.g?'<span class="b w">De garde</span>':''}${av}${r.gen?`<span class="b w">Générique : ${r.gen.n}</span>`:''}${insu!='Aucune'?(r.acc?`<span class="b">${insu} acceptée</span>`:`<span class="b r">${insu} non acceptée</span>`):''}</div>
+<div class="kp"><div><b>${s?F(s.p):'—'}</b>Prix</div><div><b>${r.d.toFixed(1)} km</b>Distance</div><div><b>${tm(r.d,5)} min</b>À pied</div><div><b>${tm(r.d,25)} min</b>À moto</div></div>
+${s?`<div class="sub" style="margin-top:8px">Stock mis à jour ${ago(s.t)}</div>`:''}</div>`}
+
+function mapSvg(rows){const X=l=>(l-1.17)/.13*600,Y=l=>(6.225-l)/.105*420;
+ const sp=rows.find(r=>r.p.id==sel),ux=X(U.lng),uy=Y(U.lat);
+ return `<div class="card" style="padding:8px"><svg class="m" viewBox="0 0 600 420" role="img" aria-label="Carte de Lomé">
+<rect width="600" height="420" fill="var(--gl)"/><path d="M0 352Q100 336 200 350T400 346T600 352V420H0Z" fill="#7cc4e8" opacity=".55"/>
+<g stroke="var(--line)" stroke-width="9" fill="none" stroke-linecap="round"><path d="M0 330L600 300"/><path d="M110 0L210 352"/><path d="M360 0L330 352"/><path d="M0 120L600 170"/><path d="M520 0L470 352"/></g>
+<g stroke="#fff" stroke-width="3" fill="none" opacity=".7"><path d="M0 330L600 300"/><path d="M110 0L210 352"/><path d="M360 0L330 352"/><path d="M0 120L600 170"/><path d="M520 0L470 352"/></g>
+<text x="14" y="396" fill="#0b4f73" font-size="13" font-weight="700" opacity=".7">Golfe de Guinée</text>
+${sp?`<path d="M${ux} ${uy}L${ux} ${Y(sp.p.lat)}L${X(sp.p.lng)} ${Y(sp.p.lat)}" stroke="var(--g)" stroke-width="5" stroke-dasharray="2 9" stroke-linecap="round" fill="none"/>`:''}
+${rows.map((r,i)=>{const x=X(r.p.lng),y=Y(r.p.lat),on=r.p.id==sel;return `<g onclick="sel=${r.p.id};draw()" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="${on?20:15}" fill="${r.p.g?'#d19a00':'var(--g)'}" stroke="#fff" stroke-width="3"/><text x="${x}" y="${y+5}" text-anchor="middle" fill="#fff" font-size="${on?16:13}" font-weight="800">${i+1}</text></g>`}).join('')}
+<circle cx="${ux}" cy="${uy}" r="16" fill="#2b7bff" opacity=".25"/><circle cx="${ux}" cy="${uy}" r="8" fill="#2b7bff" stroke="#fff" stroke-width="3"/>
+<text x="${ux+14}" y="${uy-12}" fill="#1a4fb3" font-size="13" font-weight="700">Vous</text></svg>
+<div class="sub" style="padding:6px 8px">Carte schématique (démo). En production : OpenStreetMap ou Google Maps.</div></div>`}
+
+function detail(r){if(!r)return;const p=r.p,s=r.s;
+ $('#det').innerHTML=`<div class="card"><div class="nm">${p.n}</div><div class="sub">${p.q} · ${p.tel}</div>
+<p style="margin:12px 0 4px"><b>Horaires :</b> ${p.g?'24 h/24 (garde)':p.h[0]+' h – '+p.h[1]+' h'}</p>
+<p style="margin:4px 0"><b>Assurances acceptées :</b> ${p.ins.map(i=>`<span class="b">${i}</span>`).join(' ')}</p>
+${s?`<p style="margin:4px 0"><b>Stock :</b> ${s.q} unité(s) · ${F(s.p)} · mis à jour ${ago(s.t)}</p>`:''}
+${med&&med.rx?'<div class="note" style="margin-top:10px">Médicament sur ordonnance : validation par le pharmacien obligatoire avant remise.</div>':''}
+<div class="row"><button class="btn" onclick="toast('Itinéraire affiché sur la carte : ${tm(r.d,25)} min à moto')">Y aller</button>
+${s&&s.q>0?`<button class="btn o" onclick="order(${p.id},'Commande')">Commander</button><button class="btn o" onclick="order(${p.id},'Réservation (45 min)')">Réserver</button>`:''}</div></div>`}
+
+function order(pid,kind){const r=compute().find(x=>x.p.id==pid),s=r.s;if(!s||s.q<1)return;s.q--;s.t=Date.now();
+ toast(`${kind} enregistrée chez ${r.p.n}. Stock bloqué automatiquement.`);draw()}
+function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),3200)}
+
+/* ---------- Espace pharmacie protégé ---------- */
+async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+async function login(e){e.preventDefault();const id=$('#lid').value.trim().toUpperCase(),p=P.find(x=>x.login==id);
+ if(p&&await sha($('#lpw').value)==H[p.id]){user=p.id;renderPh()}else $('#lerr').textContent='Identifiant ou mot de passe incorrect.'}
+function logout(){user=null;renderPh()}
+function renderPh(){const box=$('#v2c');
+ if(user==null){box.innerHTML=`<div class="card login"><h2>Connexion pharmacie</h2><p class="sub">Accès réservé aux pharmacies agréées. Chaque pharmacie ne voit et ne modifie que son propre stock.</p>
+<form onsubmit="login(event)"><label>Identifiant</label><input class="f" id="lid" placeholder="PH-001" autocomplete="username"><label>Mot de passe</label><input class="f" id="lpw" type="password" autocomplete="current-password">
+<div class="err" id="lerr"></div><button class="btn" style="width:100%">Se connecter</button></form>
+<div class="note" style="margin:16px 0 0;font-weight:500;font-size:13px">Démo : identifiant <b>PH-001</b>, mot de passe <b>Pharma#001</b> (PH-002 → Pharma#002, etc.).</div></div>`;return}
+ const p=P.find(x=>x.id==user),low=M.filter(m=>S[p.id][m.id].q>0&&S[p.id][m.id].q<=5),out=M.filter(m=>S[p.id][m.id].q==0);
+ box.innerHTML=`<div class="tb"><div><h2 style="margin:0">${p.n}</h2><div class="sub">${p.q} · Connecté en tant que ${p.login}</div></div><button class="btn o" style="margin-left:auto" onclick="logout()">Se déconnecter</button></div>
+<div class="kpis"><div><b>${M.length-out.length}</b><span>Produits en stock</span></div><div><b>${low.length}</b><span>Stocks faibles</span></div><div><b>${out.length}</b><span>Ruptures</span></div></div>
+<div class="card"><div class="tb"><label><input type="checkbox" ${p.g?'checked':''} onchange="p_(${p.id}).g=this.checked?1:0;toast('Statut de garde mis à jour')"> Pharmacie de garde</label>
+<label>Ouverture <input class="f" type="number" min="0" max="23" value="${p.h[0]}" style="width:64px" onchange="p_(${p.id}).h[0]=+this.value"> h</label>
+<label>Fermeture <input class="f" type="number" min="1" max="24" value="${p.h[1]}" style="width:64px" onchange="p_(${p.id}).h[1]=+this.value"> h</label>
+<label class="btn o" style="cursor:pointer">Importer un CSV<input type="file" accept=".csv,.txt" class="hide" onchange="imp(this)"></label></div>
+<div class="scr"><table><tr><th>Médicament</th><th>Quantité</th><th>Prix (F)</th><th>État</th><th>Mise à jour</th></tr>
+${M.map(m=>{const s=S[p.id][m.id];return `<tr><td>${m.n}</td><td><input type="number" min="0" value="${s.q}" onchange="upd(${m.id},'q',this.value)"></td><td><input type="number" min="0" step="25" value="${s.p}" onchange="upd(${m.id},'p',this.value)"></td><td><span class="b ${s.q==0?'r':s.q<=5?'w':''}">${s.q==0?'Rupture':s.q<=5?'Faible':'OK'}</span></td><td class="sub">${ago(s.t)}</td></tr>`}).join('')}</table></div>
+<p class="sub">Les changements sont visibles tout de suite côté patient. Format CSV : <code>médicament;quantité;prix</code></p></div>`}
+const p_=id=>P.find(x=>x.id==id);
+function upd(mid,k,v){if(user==null)return;const s=S[user][mid];s[k]=Math.max(0,+v||0);s.t=Date.now();toast('Stock mis à jour');renderPh()}
+function imp(el){const f=el.files[0];if(!f||user==null)return;f.text().then(t=>{let n=0;t.split(/\r?\n/).forEach(l=>{const[a,q,p]=l.split(/[;,\t]/);const m=a&&M.find(m=>fuzzy(a,m));if(m&&!isNaN(+q)){const s=S[user][m.id];s.q=+q;if(p&&!isNaN(+p))s.p=+p;s.t=Date.now();n++}});toast(`${n} produit(s) importé(s)`);renderPh()})}
+
+init();draw();
+</script>
+</body>
+</html>
