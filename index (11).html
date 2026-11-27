@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b6b34">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pharmalink">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Pharmalink – Pharmacies autour de vous</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#0b6b34;--g2:#0e8240;--gl:#edf5ef;--bg:#f4f6f5;--card:#fff;--ink:#16221b;--mut:#66766c;--line:#e1e7e3;--ok:#0e7a3a;--warn:#a15c00;--bad:#b42318;--map:#eef2ef;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--g:#0b6b34;--g2:#35c26f;--gl:#14291d;--bg:#0c1410;--card:#121d17;--ink:#e8f1ec;--mut:#9bb0a3;--line:#22352a;--ok:#4cd387;--warn:#e8b04a;--bad:#f59a93;--map:#101b15;color-scheme:dark}}
+:root[data-theme="dark"]{--g:#0b6b34;--g2:#35c26f;--gl:#14291d;--bg:#0c1410;--card:#121d17;--ink:#e8f1ec;--mut:#9bb0a3;--line:#22352a;--ok:#4cd387;--warn:#e8b04a;--bad:#f59a93;--map:#101b15;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14.5px/1.5 Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font-family:inherit;font-size:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--card);border-bottom:1px solid var(--line)}
+.hd{max-width:1180px;margin:auto;display:flex;align-items:center;gap:28px;padding:0 20px;height:60px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;letter-spacing:-.3px;cursor:pointer}
+.logo i{width:30px;height:30px;border-radius:7px;background:#0b6b34;display:grid;place-items:center}.logo svg{width:17px;height:17px}
+nav{display:flex;gap:2px;height:100%}nav button{border:0;background:none;color:var(--mut);font-weight:500;padding:0 14px;cursor:pointer;border-bottom:2px solid transparent;margin-top:2px}
+nav button.on{color:var(--g2);border-color:var(--g2);font-weight:600}nav .pro{margin-left:auto}
+.band{background:#0b6b34;color:#fff;padding:26px 0 20px}
+.in{max-width:860px;margin:auto;padding:0 20px}
+.band h1{margin:0;font-size:24px;letter-spacing:-.4px;font-weight:700}
+.loc{margin:4px 0 16px;font-size:13px;opacity:.8}
+.srch{display:flex;gap:8px;max-width:720px;position:relative}
+.srch input{flex:1;min-width:0;padding:13px 15px;border:0;border-radius:8px;font-size:15px;color:#16221b;background:#fff;outline:none}
+.srch button{border:0;border-radius:8px;background:#f2f7f4;color:#0b6b36;font-weight:600;padding:0 20px;cursor:pointer}
+.sug{position:absolute;left:0;right:90px;top:50px;background:var(--card);color:var(--ink);border-radius:8px;box-shadow:0 12px 32px #0004;z-index:10;overflow:hidden}
+.sug div{padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--line)}.sug div:hover{background:var(--gl)}.sug small{color:var(--mut)}
+.opts{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:14px;align-items:center;font-size:13px}
+.seg{display:flex;border:1px solid #fff5;border-radius:8px;overflow:hidden}.seg button{background:none;border:0;color:#fff;padding:7px 13px;cursor:pointer;font-weight:500}.seg button.on{background:#fff;color:#0b6b36;font-weight:600}
+.opts select{border:1px solid #fff5;background:#0b6b34;color:#fff;border-radius:8px;padding:7px 10px}.opts select option{color:#16221b;background:#fff}
+.opts label{display:flex;gap:6px;align-items:center;cursor:pointer}
+main{max-width:1180px;margin:auto;padding:22px 20px}#v1 main{max-width:860px}
+.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;align-items:start}
+@media(max-width:880px){.grid{grid-template-columns:1fr}.map{display:contents}.mapc{order:1;margin-bottom:0}.lst{order:2}#det{order:3}.hd{gap:12px}.logo span{display:none}}
+h2{font-size:16px;font-weight:600;margin:0 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:12px}
+article.card{cursor:pointer}article.sel{border-color:var(--g2);box-shadow:0 0 0 1px var(--g2)}article.best{border-left:3px solid var(--g2)}
+.hdr{display:flex;gap:12px;align-items:flex-start}.gr{min-width:0;flex:1}
+.rk{width:26px;height:26px;border-radius:6px;background:var(--gl);color:var(--g2);display:grid;place-items:center;font-weight:700;font-size:13px;flex:none}
+.nm{font-weight:600;font-size:15.5px}.sub{color:var(--mut);font-size:13px}
+.dist{font-weight:600;white-space:nowrap}.sc{font-weight:700;font-size:20px;color:var(--g2);line-height:1}.sc small{font-size:11px;color:var(--mut);font-weight:500}
+.st{font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:5px}.st:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.st.ok{color:var(--ok)}.st.no{color:var(--bad)}.st.w{color:var(--warn)}
+.tag{font-size:11px;font-weight:600;padding:2px 7px;border-radius:4px;background:var(--gl);color:var(--g2);margin-right:4px;display:inline-block;letter-spacing:.02em}.tag.w{background:#fff3d6;color:#8a5200}.tag.r{background:#fde7e5;color:var(--bad)}
+.rec{font-size:13.5px;background:var(--gl);padding:9px 12px;border-radius:7px;margin:10px 0 0}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(68px,1fr));gap:6px;margin-top:12px;border-top:1px solid var(--line);padding-top:10px;text-align:left}.kp div{font-size:12px;color:var(--mut)}.kp b{display:block;color:var(--ink);font-size:14px;font-weight:600}
+.tags{margin-top:10px}
+.strip{display:flex;gap:8px;overflow-x:auto;margin-top:12px;padding-bottom:4px;scrollbar-width:thin}
+.tile{flex:none;width:104px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 6px;cursor:pointer;text-align:center;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:3px}
+.tile:hover{border-color:var(--g2)}.tile span{font-size:11.5px;line-height:1.25;height:29px;overflow:hidden}.tile b{font-size:12.5px}
+.note{background:#fff3d6;color:#7a4b00;padding:10px 14px;border-radius:8px;margin-bottom:12px;font-size:13.5px}
+.btn{border:1px solid var(--g2);border-radius:8px;padding:9px 15px;font-weight:600;cursor:pointer;background:var(--g);color:#fff;text-decoration:none;display:inline-block}.btn.o{background:none;color:var(--g2)}.btn.s{padding:6px 11px;font-size:13px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.map{position:sticky;top:calc(72px + env(safe-area-inset-top,0px))}
+svg.m{width:100%;height:auto;display:block;border-radius:6px}
+table{width:100%;border-collapse:collapse}th{text-align:left;color:var(--mut);font-size:12px;font-weight:600;padding:8px}td{padding:7px 8px;border-top:1px solid var(--line)}
+input.f,td input,select.f{padding:9px 11px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);width:100%}td input{width:90px}
+.scr{overflow-x:auto}.hide{display:none}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:#12241a;color:#fff;padding:11px 18px;border-radius:8px;font-weight:500;z-index:50;box-shadow:0 8px 24px #0005;max-width:90%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}@media(max-width:760px){.two{grid-template-columns:1fr}}
+.fm label{display:block;font-weight:500;font-size:13px;margin:12px 0 4px}.err{color:var(--bad);font-size:13px;min-height:18px;margin:8px 0}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}.kpis div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}.kpis b{font-size:24px;display:block}.kpis span{font-size:12.5px;color:var(--mut)}
+.tb{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}.chk{display:inline-flex;gap:5px;align-items:center;margin-right:10px;cursor:pointer}
+footer{max-width:1180px;margin:auto;padding:10px 20px 30px;color:var(--mut);font-size:12px}
+.sheet{position:fixed;inset:0;background:#0009;z-index:60;display:flex;align-items:flex-end;justify-content:center}.sheet.hide{display:none}
+.sh{background:var(--card);width:100%;max-width:640px;max-height:94vh;overflow:auto;border-radius:16px 16px 0 0;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+@media(min-width:700px){.sheet{align-items:center}.sh{border-radius:14px}}
+.shh{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:12px}.x{border:0;background:var(--gl);color:var(--ink);width:34px;height:34px;border-radius:8px;cursor:pointer;font-size:16px;flex:none}
+.sh iframe{width:100%;height:300px;border:0;border-radius:8px;margin-top:12px;background:var(--map)}
+</style>
+</head>
+<body>
+<header><div class="hd">
+<div class="logo" onclick="go('pharm')"><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg></i><span>Pharmalink</span></div>
+<nav><button id="n_pharm" class="on" onclick="go('pharm')">Pharmacies</button><button id="n_garde" onclick="go('garde')">De garde</button><button id="n_pro" class="pro" onclick="go('pro')">Espace professionnel</button></nav>
+</div></header>
+
+<section id="v1">
+<div class="band"><div class="in">
+<h1 id="ttl">Pharmacies autour de vous</h1>
+<div class="loc" id="lst"></div>
+<div class="srch"><input id="q" placeholder="Rechercher un médicament" autocomplete="off" oninput="sugg()" onkeydown="if(event.key==='Enter')pickFirst()"><button onclick="pickFirst()">Rechercher</button><div id="sug" class="sug hide"></div></div>
+<div class="opts">
+<div class="seg" id="seg"></div>
+<select id="ins" onchange="insu=this.value;draw()" aria-label="Assurance"></select>
+<select id="locs" onchange="setLoc(this.value)" aria-label="Position"></select>
+</div></div></div>
+<main><div id="out"></div></main>
+</section>
+<section id="v2" class="hide"><main><div id="v2c"></div></main></section>
+<footer>Pharmalink ne remplace ni le médecin ni le pharmacien. Version de démonstration : les pharmacies marquées DÉMO, leurs stocks et visuels sont fictifs. Annuaire des pharmacies : © contributeurs OpenStreetMap.</footer>
+
+<div id="sheet" class="sheet hide" onclick="if(event.target===this)closeRoute()"></div>
+<script>
+const $=s=>document.querySelector(s);
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const lev=(a,b)=>{const d=[];for(let i=0;i<=a.length;i++)d[i]=[i];for(let j=1;j<=b.length;j++)d[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]==b[j-1]?0:1));return d[a.length][b.length]};
+const fuzzy=(q,m)=>{q=norm(q).trim();if(!q)return false;const t=norm(m.n+' '+m.dci);return t.includes(q)||t.split(/[\s,]+/).some(w=>lev(q,w.slice(0,q.length))<=(q.length>5?2:1))};
+const hav=(a,b,c,d)=>{const r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.sin(x/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)**2;return 12742*Math.asin(Math.sqrt(h))};
+const F=n=>n.toLocaleString('fr-FR')+' F';
+const fd=d=>d<1?Math.round(d*1000)+' m':d<100?d.toFixed(1).replace('.',',')+' km':Math.round(d).toLocaleString('fr-FR')+' km';
+const near=d=>d<=40,tm=(d,v)=>Math.max(1,Math.round(d/v*60));
+const H={"1": "1ae25ea443c9b304983af7881dee6470e511f175a075a1bd5ba39a28a904d464", "2": "10c8a4868d5183cb736283a6f362d387b84b75e3b3b7b4c95c4d7baa05a55d5e", "3": "7565a63b7b6c3a26212ed778bfc0fee968c273b8eab8b266a1a8bf8013116358", "4": "44b8b0064eff42fed735f638d63d578ed8b5d12ab12302d2011dfdeff1dbe8c5", "5": "e7070358459c880fba08ec8b840e7d5837648e61a1592c028dc5bec68af82365", "6": "8443ce35e2a2a4360ec323518d04f9f5e64397be138c2b4175622d38ca03f1bc", "7": "efaf279eec09682186658bc6aaa33ab7d8f271f16074dbd59dbef4d73da6e6a9", "8": "bc21391c1594f093bc155dc44ca926dc465cdbf939cf30fb68904d7727d367dd", "9": "9c25a512542a9d248770c6bc4a1bf029ebef3cda6f3ce6b80cf626ff0f37f38f", "10": "f3256937ff1b589556deaad22d5d0e6cc7b7c501d6d285481a89a6b145d4a8b2", "admin": "b5af2beb9b7fd5aa4eb21b61925bd3856793e54e0a39052fbcfaf5b477fd07f3"};
+const INS=['NSIA','Allianz','GTA','Atlantique','Sunu'];
+const M=[
+{id:1,n:'Doliprane 1000 mg',dci:'Paracétamol',rx:0,gen:[2],base:1500},
+{id:2,n:'Paracétamol 500 mg (générique)',dci:'Paracétamol',rx:0,gen:[1],base:700},
+{id:3,n:'Coartem 20/120',dci:'Artéméther-Luméfantrine',rx:1,gen:[4],base:3200},
+{id:4,n:'Artéméther-Luméfantrine (générique)',dci:'Antipaludique',rx:1,gen:[3],base:2400},
+{id:5,n:'Amoxicilline 500 mg',dci:'Amoxicilline',rx:1,gen:[],base:2100},
+{id:6,n:'Ibuprofène 400 mg',dci:'Ibuprofène',rx:0,gen:[],base:1200},
+{id:7,n:'Sels de réhydratation (SRO)',dci:'Réhydratation',rx:0,gen:[],base:350},
+{id:8,n:'Insuline Mixtard',dci:'Insuline humaine',rx:1,gen:[],base:6500}];
+const P=[
+{id:1,n:'Pharmacie Tokoin Centrale',q:'Tokoin',lat:6.1650,lng:1.2150,tel:'+22890000001',h:[7,21],g:0,ins:['NSIA','Allianz','GTA']},
+{id:2,n:'Pharmacie du Grand Marché',q:'Assivito',lat:6.1690,lng:1.2260,tel:'+22890000002',h:[8,20],g:0,ins:['NSIA','Atlantique']},
+{id:3,n:'Pharmacie Hédzranawoé',q:'Hédzranawoé',lat:6.1810,lng:1.2360,tel:'+22890000003',h:[0,24],g:1,ins:['Allianz','GTA','Sunu']},
+{id:4,n:'Pharmacie Bè Kpota',q:'Bè',lat:6.1580,lng:1.2470,tel:'+22890000004',h:[7,22],g:0,ins:['NSIA','Sunu']},
+{id:5,n:'Pharmacie Amoutivé',q:'Amoutivé',lat:6.1620,lng:1.2290,tel:'+22890000005',h:[8,21],g:0,ins:['Allianz','Atlantique','GTA']},
+{id:6,n:'Pharmacie de la Lagune',q:'Nyékonakpoè',lat:6.1560,lng:1.2220,tel:'+22890000006',h:[0,24],g:1,ins:['NSIA','Allianz']},
+{id:7,n:'Pharmacie Kodjoviakopé',q:'Kodjoviakopé',lat:6.1540,lng:1.2020,tel:'+22890000007',h:[7,20],g:0,ins:['GTA','Sunu']},
+{id:8,n:'Pharmacie Agoè Nyivé',q:'Agoè',lat:6.2100,lng:1.2090,tel:'+22890000008',h:[8,19],g:0,ins:['NSIA']},
+{id:9,n:'Pharmacie Adidogomé',q:'Adidogomé',lat:6.1930,lng:1.1850,tel:'+22890000009',h:[7,21],g:0,ins:['Allianz','Sunu','Atlantique']},
+{id:10,n:'Pharmacie Djidjolé',q:'Djidjolé',lat:6.1800,lng:1.1990,tel:'+22890000010',h:[8,22],g:0,ins:['NSIA','GTA']}];
+P.forEach(p=>{p.login='PH-'+String(p.id).padStart(3,'0');p.d=1});
+const Q=[['Centre-ville',6.1725,1.2314],['Tokoin',6.1670,1.2130],['Bè',6.1600,1.2450],['Hédzranawoé',6.1800,1.2350],['Agoè',6.2100,1.2100],['Adidogomé',6.1930,1.1850],['Kodjoviakopé',6.1550,1.2030]];
+const hs=(a,b)=>{let x=(a*2654435761+b*40503)>>>0;x^=x>>>13;x=Math.imul(x,1274126177)>>>0;return x%100};
+const S={};P.forEach(p=>{S[p.id]={};M.forEach(m=>{const r=hs(p.id,m.id),r2=hs(m.id,p.id+9);
+S[p.id][m.id]={q:r<20?0:r<38?r%5+1:6+r%40,p:Math.round(m.base*(.9+r2%25/100)/25)*25,t:Date.now()-(r2*7+5)*60000}})});
+
+let EXT=[],extKey='',med=null,mode='browse',view='pharm',sel=null,prio='near',insu='Aucune',user=null,notice='',LIM=8,REQ=[],rpos=null;
+let loc={lat:6.1725,lng:1.2314,src:'def',label:'Centre-ville de Lomé'};
+const PR={near:['Le plus proche',[]],eq:['Équilibré',[.30,.20,.20,.15,.15]],cheap:['Le moins cher',[.25,.15,.10,.35,.15]]};
+const isOpen=p=>{const d=new Date(),T=d.getUTCHours()*60+d.getUTCMinutes();return p.g||(p.h[0]*60<=T&&T<p.h[1]*60)};
+const ago=t=>{const m=Math.round((Date.now()-t)/60000);return m<1?'à l’instant':m<60?`il y a ${m} min`:`il y a ${Math.round(m/60)} h`};
+const COL=['#0b6b34','#1d6fb8','#c2410c','#7c3aed','#a16207','#0f766e','#be123c','#334155'];
+const pack=(m,w=60)=>{const c=COL[(m.id-1)%8],t=m.n.split(/[ (]/)[0].slice(0,10);return `<svg viewBox="0 0 64 64" width="${w}" height="${w}" aria-hidden="true"><rect x="12" y="6" width="40" height="52" rx="4" fill="#fff" stroke="${c}" stroke-width="2"/><path d="M12 10a4 4 0 0 1 4-4h32a4 4 0 0 1 4 4v10H12z" fill="${c}"/><path d="M30 9h4v8h-4z M27 11h10v4H27z" fill="#fff"/><text x="32" y="38" text-anchor="middle" font-size="7.5" font-weight="700" fill="${c}" font-family="Inter,Arial,sans-serif">${t}</text><rect x="19" y="45" width="26" height="2.5" rx="1" fill="${c}" opacity=".35"/><rect x="19" y="50" width="16" height="2.5" rx="1" fill="${c}" opacity=".35"/></svg>`};
+
+function init(){
+ $('#seg').innerHTML=Object.entries(PR).map(([k,v])=>`<button class="${k==prio?'on':''}" onclick="prio='${k}';init();draw()">${v[0]}</button>`).join('');
+ $('#ins').innerHTML=['Aucune',...INS].map(i=>`<option ${i==insu?'selected':''} value="${i}">${i=='Aucune'?'Mon assurance : aucune':'Assurance '+i}</option>`).join('');
+ if(!$('#locs').options.length)$('#locs').innerHTML='<option value="gps">Ma position actuelle</option>'+Q.map((q,i)=>`<option value="${i}">Autour de : ${q[0]}</option>`).join('')}
+function locate(){if(!navigator.geolocation){toast('Localisation indisponible sur cet appareil.');return}
+ navigator.geolocation.getCurrentPosition(p=>{loc={lat:p.coords.latitude,lng:p.coords.longitude,src:'gps',label:''};$('#locs').value='gps';sel=null;draw();loadExt()},
+ ()=>{$('#locs').value='0';toast('Position non autorisée : choisissez votre quartier.')},{enableHighAccuracy:true,timeout:9000,maximumAge:60000})}
+function setLoc(v){if(v=='gps'){locate();return}const q=Q[+v];loc={lat:q[1],lng:q[2],src:'man',label:q[0]};sel=null;draw();loadExt()}
+async function loadExt(){const k=loc.lat.toFixed(2)+','+loc.lng.toFixed(2);if(k==extKey)return;extKey=k;
+ try{const q=`[out:json][timeout:20];nwr(around:6000,${loc.lat},${loc.lng})[amenity=pharmacy];out center 80;`;
+  const r=await fetch('https://overpass-api.de/api/interpreter',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'data='+encodeURIComponent(q)});
+  const j=await r.json();
+  EXT=j.elements.map(e=>{const t=e.tags||{};return{id:'o'+e.id,ext:1,n:t.name||'Pharmacie',q:t['addr:suburb']||t['addr:neighbourhood']||t['addr:street']||'',lat:e.lat!=null?e.lat:e.center&&e.center.lat,lng:e.lon!=null?e.lon:e.center&&e.center.lon,tel:(t.phone||t['contact:phone']||'').replace(/[^\d+]/g,''),hours:t.opening_hours||'',h:[0,24],g:0,ins:[]}}).filter(p=>p.lat&&p.lng);
+  sel=null;draw()}catch(e){extKey=''}}
+function go(v){view=v;mode=v=='garde'?'garde':med?'search':'browse';sel=null;LIM=8;
+ $('#v1').classList.toggle('hide',v=='pro');$('#v2').classList.toggle('hide',v!='pro');
+ ['pharm','garde','pro'].forEach(k=>$('#n_'+k).classList.toggle('on',k==v));
+ if(v=='pro')renderPro();else draw();window.scrollTo(0,0)}
+function sugg(){const v=$('#q').value,l=M.filter(m=>fuzzy(v,m)).slice(0,5),s=$('#sug');
+ if(!v.trim()){s.classList.add('hide');if(med){med=null;go(view=='garde'?'garde':'pharm')}return}
+ s.classList.toggle('hide',!l.length);s.innerHTML=l.map(m=>`<div onclick="pick(${m.id})">${m.n}<br><small>${m.dci}${m.rx?' · sur ordonnance':''}</small></div>`).join('')}
+function pick(id){med=M.find(m=>m.id==id);$('#q').value=med.n;$('#sug').classList.add('hide');go('pharm')}
+function pickFirst(){const m=M.find(m=>fuzzy($('#q').value,m));if(m)pick(m.id)}
+
+function compute(){
+ let rows=P.concat(EXT).map(p=>{const d=hav(loc.lat,loc.lng,p.lat,p.lng)*1.35;let s=null,gen=null;
+  if(med&&!p.ext){s=S[p.id][med.id];if(s.q==0)for(const g of med.gen){const gs=S[p.id][g];if(gs.q>0){gen=M.find(x=>x.id==g);s=gs;break}}}
+  return{p,d,s,gen,open:p.ext?null:isOpen(p),avail:p.ext?null:s?s.q>0:true,acc:p.ext?null:insu=='Aucune'||p.ins.includes(insu)}});
+ if(mode=='garde')return rows.filter(r=>r.p.g).sort((a,b)=>a.d-b.d);
+ if(mode=='browse')return rows.sort((a,b)=>a.d-b.d);
+ if(prio=='near'){const g=r=>r.p.ext?1:(r.avail&&r.open)?0:2;return rows.sort((a,b)=>g(a)-g(b)||a.d-b.d)}
+ const W=PR[prio][1],pr=rows.filter(r=>r.avail&&r.s).map(r=>r.s.p),mn=Math.min(...pr);
+ rows.forEach(r=>{const a=r.p.ext?.4:!r.s?1:r.s.q>5?1:r.s.q>0?.5:0;
+  const sc=W[0]*a+W[1]*(r.open===null?.5:r.open?1:0)+W[2]*Math.max(0,1-r.d/8)+W[3]*(r.s&&r.avail?mn/r.s.p:0)+W[4]*(r.p.ext?.5:r.acc?1:.2);
+  r.score=Math.round(100*sc*(r.p.ext?.6:(r.avail&&r.open)?1:.35))});
+ return rows.sort((a,b)=>b.score-a.score||a.d-b.d)}
+
+const st=r=>r.open===null?`<span class="st w">Horaires non communiqués</span>`:r.open?`<span class="st ok">${r.p.g?'Ouverte 24 h/24':'Ouverte · ferme à '+r.p.h[1]+' h'}</span>`:`<span class="st no">Fermée · ouvre à ${r.p.h[0]} h</span>`;
+function explain(r){const b=[`à ${fd(r.d)}`];
+ if(r.s)b.push(`en stock à ${F(r.s.p)}`);b.push(r.p.g?'de garde 24 h/24':`ouverte jusqu’à ${r.p.h[1]} h`);
+ if(insu!='Aucune')b.push(r.acc?`carte ${insu} acceptée`:`carte ${insu} non acceptée`);return b.join(', ')}
+const strip=p=>{if(p.ext)return '<div class="sub" style="margin-top:10px">Stock non communiqué. Appelez la pharmacie pour vérifier la disponibilité.</div>';const l=M.filter(m=>S[p.id][m.id].q>0).slice(0,6);return l.length?`<div class="strip">${l.map(m=>`<button class="tile" onclick="event.stopPropagation();pick(${m.id})">${pack(m)}<span>${m.n.replace(/\s*\(.*\)/,'')}</span><b>${F(S[p.id][m.id].p)}</b></button>`).join('')}</div>`:'<div class="sub" style="margin-top:10px">Stock en cours de saisie par la pharmacie.</div>'};
+
+function draw(){
+ const srch=mode=='search';$('#seg').classList.toggle('hide',!srch);
+ $('#ttl').textContent=mode=='garde'?'Pharmacies de garde':'Pharmacies autour de vous';
+ $('#lst').textContent=loc.src=='gps'?'Position détectée · résultats triés selon votre emplacement':loc.src=='man'?'Autour de : '+loc.label:'Position approximative : '+loc.label+' · activez la localisation pour des résultats précis';
+ const all=compute(),rows=all.slice(0,LIM),far=all[0]&&all[0].d>50;let skip='';
+ if(srch&&prio=='near'&&all[0]&&all[0].avail&&all[0].open&&!all[0].p.ext){const np=all.filter(r=>!r.p.ext).sort((a,b)=>a.d-b.d)[0];
+  if(np&&np.p.id!=all[0].p.id)skip=`<div class="note">La pharmacie la plus proche, ${np.p.n} (${fd(np.d)}), ${np.avail?'est fermée en ce moment':'n’a pas ce produit en stock'}. Voici la plus proche qui l’a.</div>`}
+ const title=mode=='garde'?'Pharmacies de garde, de la plus proche à la plus éloignée':srch?`${all.length} pharmacies pour « ${med.n} »`:'Pharmacies, de la plus proche à la plus éloignée';
+ $('#out').innerHTML=`${mode=='garde'?'<div class="note">Les pharmacies de garde affichées sont celles déclarées par les pharmacies partenaires.</div>':''}${far?`<div class="note">Aucune pharmacie partenaire près de votre position (${fd(all[0].d)}). Pharmalink couvre pour l’instant Lomé.</div>`:''}${skip}${srch&&med.rx?'<div class="note">Médicament sur ordonnance : validation par le pharmacien avant remise.</div>':''}<h2>${title}</h2>${rows.map((r,i)=>card(r,i)).join('')||'<div class="card">Aucune pharmacie de garde enregistrée.</div>'}${all.length>LIM?`<button class="btn o" style="width:100%" onclick="LIM+=8;draw()">Afficher plus de pharmacies</button>`:''}`}
+
+const kp=(r,pr)=>{const n=near(r.d),T=v=>n?tm(r.d,v)+' min':'—';return `<div class="kp">${pr?`<div><b>${r.s?F(r.s.p):'—'}</b>Prix</div>`:''}<div><b>${fd(r.d)}</b>Distance</div><div><b>${T(5)}</b>À pied</div><div><b>${T(25)}</b>À moto</div><div><b>${T(20)}</b>En voiture</div></div>`};
+const acts=r=>{const p=r.p,s=r.s;return `<div class="row"><button class="btn" onclick="route('${p.id}')">Itinéraire</button>${p.tel?`<a class="btn o" href="tel:${p.tel}">Appeler</a>`:''}${mode=='search'&&s&&s.q>0&&!p.ext?`<button class="btn o" onclick="order(${p.id},'Commande')">Commander</button><button class="btn o" onclick="order(${p.id},'Réservation (45 min)')">Réserver</button>`:''}</div>`};
+function card(r,i){const p=r.p,s=r.s,srch=mode=='search',first=i==0,best=first&&srch&&r.avail&&r.open&&!p.ext,sc=srch&&prio!='near';
+ const av=p.ext?'<span class="tag w">Stock non communiqué</span>':!s?'':s.q==0?'<span class="tag r">Indisponible</span>':s.q<=5?'<span class="tag w">Stock faible</span>':'<span class="tag">En stock</span>';
+ return `<article class="card${best||(first&&!srch)?' best':''}"><div class="hdr"><div class="rk">${i+1}</div><div class="gr"><div class="nm">${p.n} ${p.g?'<span class="tag w">GARDE</span>':''}${p.d?'<span class="tag">DÉMO</span>':''}${p.ext?'<span class="tag">ANNUAIRE</span>':''}</div><div class="sub">${p.q?p.q+' · ':''}${st(r)}</div></div>${sc?`<div class="sc">${r.score}<small>/100</small></div>`:`<div class="dist">${fd(r.d)}</div>`}</div>
+${best?`<div class="rec"><b>Meilleur choix.</b> ${explain(r)}.</div>`:first&&!srch?'<div class="rec"><b>La plus proche de vous.</b></div>':''}
+${srch?`<div class="tags">${av}${r.gen?`<span class="tag w">Générique : ${r.gen.n}</span>`:''}${insu!='Aucune'&&!p.ext?(r.acc?`<span class="tag">${insu} acceptée</span>`:`<span class="tag r">${insu} non acceptée</span>`):''}</div>${kp(r,1)}`:kp(r,0)+strip(p)}
+${acts(r)}</article>`}
+
+function route(pid){const r=compute().find(x=>String(x.p.id)==String(pid));if(!r)return;const p=r.p,n=near(r.d),T=v=>n?tm(r.d,v)+' min':'—';
+ const pa=Math.max(.004,Math.abs(p.lat-loc.lat)*.3),po=Math.max(.004,Math.abs(p.lng-loc.lng)*.3);
+ const bb=[Math.min(p.lng,loc.lng)-po,Math.min(p.lat,loc.lat)-pa,Math.max(p.lng,loc.lng)+po,Math.max(p.lat,loc.lat)+pa].map(x=>x.toFixed(5)).join('%2C');
+ $('#sheet').innerHTML=`<div class="sh"><div class="shh"><div><div class="nm" style="font-size:17px">${p.n}</div><div class="sub">${p.q?p.q+' · ':''}${fd(r.d)} · ${st(r)}</div></div><button class="x" onclick="closeRoute()" aria-label="Fermer">✕</button></div>
+<div class="kp"><div><b>${T(5)}</b>À pied</div><div><b>${T(25)}</b>À moto</div><div><b>${T(20)}</b>En voiture</div></div>
+<iframe title="Carte" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=${bb}&layer=mapnik&marker=${p.lat}%2C${p.lng}"></iframe>
+<div class="sub" style="margin:6px 0 10px">Le repère indique la pharmacie. Carte © contributeurs OpenStreetMap.</div>
+<table><tr><td class="sub" style="width:110px;border:0;padding-left:0">Horaires</td><td style="border:0">${p.ext?(p.hours||'Non communiqués'):p.g?'24 h/24 (garde)':p.h[0]+' h – '+p.h[1]+' h'}</td></tr>
+<tr><td class="sub" style="padding-left:0">Téléphone</td><td>${p.tel?p.tel.replace(/(\+228)(\d\d)(\d\d)(\d\d)(\d\d)/,'$1 $2 $3 $4 $5'):'Non communiqué'}</td></tr>
+<tr><td class="sub" style="padding-left:0">Assurances</td><td>${p.ins.length?p.ins.map(i=>`<span class="tag">${i}</span>`).join(''):'Non renseigné'}</td></tr></table>
+<div class="row"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=${loc.lat},${loc.lng}&destination=${p.lat},${p.lng}">Démarrer l’itinéraire</a>${p.tel?`<a class="btn o" href="tel:${p.tel}">Appeler</a>`:''}</div></div>`;
+ $('#sheet').classList.remove('hide');document.body.style.overflow='hidden'}
+function closeRoute(){$('#sheet').classList.add('hide');$('#sheet').innerHTML='';document.body.style.overflow=''}
+function order(pid,kind){const r=compute().find(x=>x.p.id==pid),s=r.s;if(!s||s.q<1)return;s.q--;s.t=Date.now();toast(`${kind} enregistrée chez ${r.p.n}. Stock bloqué.`);draw()}
+function toast(t){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),3400)}
+
+/* ---------- Espace professionnel ---------- */
+async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+async function login(e){e.preventDefault();const id=$('#lid').value.trim().toLowerCase(),h=await sha($('#lpw').value);
+ const p=P.find(x=>x.login.toLowerCase()==id);
+ if(id=='admin'&&h==H.admin){user='admin';renderPro()}else if(p&&h==H[p.id]){user=p.id;renderPro()}else $('#lerr').textContent='Identifiant ou mot de passe incorrect.'}
+function logout(){user=null;renderPro()}
+function rgeo(){if(!navigator.geolocation){toast('Localisation indisponible');return}navigator.geolocation.getCurrentPosition(p=>{rpos={lat:p.coords.latitude,lng:p.coords.longitude};$('#rps').textContent='Position enregistrée'},()=>toast('Position non autorisée'),{timeout:9000})}
+async function reg(e){e.preventDefault();const v=i=>$(i).value.trim();
+ if(v('#rpw')!=v('#rpw2')||v('#rpw').length<8){$('#rerr').textContent='Mot de passe : 8 caractères minimum et identique dans les deux champs.';return}
+ const em=v('#re').toLowerCase();if(P.some(p=>p.login.toLowerCase()==em)||REQ.some(r=>r.email==em)){$('#rerr').textContent='Cette adresse e-mail est déjà utilisée.';return}
+ REQ.push({n:v('#rn'),q:v('#rq'),tel:v('#rt').replace(/\s/g,''),email:em,lic:v('#rl'),pos:rpos||{lat:loc.lat,lng:loc.lng},h:await sha(v('#rpw')),date:new Date().toLocaleDateString('fr-FR')});
+ $('#rbox').innerHTML='<h2>Demande envoyée</h2><p class="sub">Nous vérifions votre numéro d’agrément. Une fois la demande validée, vous pourrez vous connecter avec votre e-mail et le mot de passe que vous venez de choisir.</p>'}
+function ok(i){const r=REQ.splice(i,1)[0],id=Math.max(...P.map(p=>p.id))+1;
+ P.push({id,n:r.n,q:r.q,lat:r.pos.lat,lng:r.pos.lng,tel:r.tel,h:[8,20],g:0,ins:[],login:r.email});H[id]=r.h;S[id]={};M.forEach(m=>S[id][m.id]={q:0,p:m.base,t:Date.now()});toast(r.n+' est validée.');renderPro()}
+function ko(i){REQ.splice(i,1);renderPro()}
+const p_=id=>P.find(x=>x.id==id);
+function renderPro(){const box=$('#v2c');
+ if(user==null){box.innerHTML=`<div class="two"><div class="card"><h2>Connexion</h2><p class="sub">Réservé aux pharmacies agréées. Chaque pharmacie ne voit et ne modifie que son propre stock.</p>
+<form class="fm" onsubmit="login(event)"><label>Identifiant ou e-mail</label><input class="f" id="lid" autocomplete="username"><label>Mot de passe</label><input class="f" id="lpw" type="password" autocomplete="current-password"><div class="err" id="lerr"></div><button class="btn" style="width:100%">Se connecter</button></form></div>
+<div class="card" id="rbox"><h2>Inscrire ma pharmacie</h2><p class="sub">Créez votre compte. Il est activé après vérification de votre agrément.</p>
+<form class="fm" onsubmit="reg(event)"><label>Nom de la pharmacie</label><input class="f" id="rn" required><label>Quartier</label><input class="f" id="rq" required><label>Téléphone</label><input class="f" id="rt" type="tel" required placeholder="+228 …"><label>Adresse e-mail (votre identifiant)</label><input class="f" id="re" type="email" required><label>Numéro d’agrément</label><input class="f" id="rl" required>
+<label>Localisation</label><button type="button" class="btn o s" onclick="rgeo()">Utiliser ma position actuelle</button> <span class="sub" id="rps"></span>
+<label>Mot de passe</label><input class="f" id="rpw" type="password" required autocomplete="new-password"><label>Confirmer le mot de passe</label><input class="f" id="rpw2" type="password" required autocomplete="new-password"><div class="err" id="rerr"></div><button class="btn" style="width:100%">Envoyer ma demande</button></form></div></div>`;return}
+ if(user=='admin'){box.innerHTML=`<div class="tb"><div><h2 style="margin:0">Administration Pharmalink</h2><div class="sub">${P.length} pharmacies actives · ${REQ.length} demande(s) en attente</div></div><button class="btn o" style="margin-left:auto" onclick="logout()">Se déconnecter</button></div>
+<div class="card"><h2>Demandes d’inscription</h2>${REQ.length?`<div class="scr"><table><tr><th>Pharmacie</th><th>Quartier</th><th>Agrément</th><th>Contact</th><th>Date</th><th></th></tr>${REQ.map((r,i)=>`<tr><td>${r.n}</td><td>${r.q}</td><td>${r.lic}</td><td>${r.email}<br><span class="sub">${r.tel}</span></td><td>${r.date}</td><td style="white-space:nowrap"><button class="btn s" onclick="ok(${i})">Valider</button> <button class="btn o s" onclick="ko(${i})">Refuser</button></td></tr>`).join('')}</table></div>`:'<p class="sub">Aucune demande en attente.</p>'}</div>`;return}
+ const p=p_(user),low=M.filter(m=>S[p.id][m.id].q>0&&S[p.id][m.id].q<=5),out=M.filter(m=>S[p.id][m.id].q==0);
+ box.innerHTML=`<div class="tb"><div><h2 style="margin:0">${p.n}</h2><div class="sub">${p.q} · Connecté : ${p.login}</div></div><button class="btn o" style="margin-left:auto" onclick="logout()">Se déconnecter</button></div>
+<div class="kpis"><div><b>${M.length-out.length}</b><span>Produits en stock</span></div><div><b>${low.length}</b><span>Stocks faibles</span></div><div><b>${out.length}</b><span>Ruptures</span></div></div>
+<div class="card"><h2>Paramètres de la pharmacie</h2><div class="tb"><label class="chk"><input type="checkbox" ${p.g?'checked':''} onchange="p_(${p.id}).g=this.checked?1:0;toast('Statut de garde mis à jour')"> Pharmacie de garde</label>
+<label class="chk">Ouverture <input class="f" type="number" min="0" max="23" value="${p.h[0]}" style="width:66px" onchange="p_(${p.id}).h[0]=+this.value"> h</label><label class="chk">Fermeture <input class="f" type="number" min="1" max="24" value="${p.h[1]}" style="width:66px" onchange="p_(${p.id}).h[1]=+this.value"> h</label></div>
+<div>Assurances acceptées : ${INS.map(i=>`<label class="chk"><input type="checkbox" ${p.ins.includes(i)?'checked':''} onchange="tg('${i}',this.checked)"> ${i}</label>`).join('')}</div></div>
+<div class="card"><div class="tb"><h2 style="margin:0">Stock et prix</h2><label class="btn o s" style="margin-left:auto">Importer un CSV<input type="file" accept=".csv,.txt" class="hide" onchange="imp(this)"></label></div>
+<div class="scr"><table><tr><th>Médicament</th><th>Quantité</th><th>Prix (F)</th><th>État</th><th>Mise à jour</th></tr>
+${M.map(m=>{const s=S[p.id][m.id];return `<tr><td>${m.n}</td><td><input type="number" min="0" value="${s.q}" onchange="upd(${m.id},'q',this.value)"></td><td><input type="number" min="0" step="25" value="${s.p}" onchange="upd(${m.id},'p',this.value)"></td><td><span class="st ${s.q==0?'no':s.q<=5?'w':'ok'}">${s.q==0?'Rupture':s.q<=5?'Faible':'Disponible'}</span></td><td class="sub">${ago(s.t)}</td></tr>`}).join('')}</table></div>
+<p class="sub" style="margin-bottom:0">Les modifications sont visibles immédiatement par les patients. Format CSV : médicament;quantité;prix</p></div>
+<div class="card" style="max-width:420px"><h2>Changer mon mot de passe</h2><form class="fm" onsubmit="chpw(event)"><label>Mot de passe actuel</label><input class="f" id="op" type="password" required><label>Nouveau mot de passe (8 caractères minimum)</label><input class="f" id="np" type="password" required><div class="err" id="perr"></div><button class="btn">Enregistrer</button></form></div>`}
+function tg(i,on){const p=p_(user);p.ins=on?[...new Set([...p.ins,i])]:p.ins.filter(x=>x!=i);toast('Assurances mises à jour')}
+async function chpw(e){e.preventDefault();if(await sha($('#op').value)!=H[user]){$('#perr').textContent='Mot de passe actuel incorrect.';return}
+ if($('#np').value.length<8){$('#perr').textContent='8 caractères minimum.';return}H[user]=await sha($('#np').value);toast('Mot de passe modifié');renderPro()}
+function upd(mid,k,v){if(typeof user!='number')return;const s=S[user][mid];s[k]=Math.max(0,+v||0);s.t=Date.now();toast('Stock mis à jour');renderPro()}
+function imp(el){const f=el.files[0];if(!f||typeof user!='number')return;f.text().then(t=>{let n=0;t.split(/\r?\n/).forEach(l=>{const[a,q,p]=l.split(/[;,\t]/);const m=a&&M.find(m=>fuzzy(a,m));if(m&&!isNaN(+q)){const s=S[user][m.id];s.q=+q;if(p&&!isNaN(+p))s.p=+p;s.t=Date.now();n++}});toast(`${n} produit(s) importé(s)`);renderPro()})}
+
+document.addEventListener('click',e=>{if(!e.target.closest('.srch'))$('#sug').classList.add('hide')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeRoute()});
+$('#q').addEventListener('keydown',e=>{if(e.key==='Escape')$('#sug').classList.add('hide')});
+init();go('pharm');locate();loadExt();
+try{if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('/sw.js')}catch(e){}
+</script>
+</body>
+</html>
